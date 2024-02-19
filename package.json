@@ -1,7 +1,7 @@
 {
     "name": "@kapeta/language-target-docker",
     "version": "local",
-    "description": "Provides code generation support for ReactJS + Typescript",
+    "description": "Provides support for docker based projects",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/kapetacom/codegen-target-docker.git"
