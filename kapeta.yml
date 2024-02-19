@@ -7,7 +7,7 @@ metadata:
 spec:
   icon:
     type: url
-    value: https://storage.googleapis.com/kapeta-public-cdn/icons/react.svg
+    value: https://storage.googleapis.com/kapeta-public-cdn/icons/docker.svg
   local:
     image: node:20
     workingDir: /workspace
