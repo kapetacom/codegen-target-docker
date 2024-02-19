@@ -1,10 +1,10 @@
 {
-    "name": "@kapeta/language-target-react-ts",
+    "name": "@kapeta/language-target-docker",
     "version": "local",
     "description": "Provides code generation support for ReactJS + Typescript",
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/kapetacom/codegen-target-react-ts.git"
+        "url": "git+https://github.com/kapetacom/codegen-target-docker.git"
     },
     "main": "node/index.js",
     "types": "node/index.d.ts",
@@ -17,9 +17,9 @@
     ],
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/kapetacom/codegen-target-react-ts/issues"
+        "url": "https://github.com/kapetacom/codegen-target-docker/issues"
     },
-    "homepage": "https://github.com/kapetacom/codegen-target-react-ts#readme",
+    "homepage": "https://github.com/kapetacom/codegen-target-docker#readme",
     "prettier": "@kapeta/prettier-config",
     "dependencies": {
         "@kapeta/codegen-target": "^1.6.1",
