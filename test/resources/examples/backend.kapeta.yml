@@ -1,0 +1,18 @@
+kind: kapeta/block-type-service:1.3.4
+metadata:
+  name: kapeta/backend
+spec:
+  target:
+    kind: kapeta/language-target-react-ts:local
+  type: service
+  providers:
+    - kind: kapeta/resource-type-web-page:0.0.12
+      metadata:
+        name: MyPage
+      spec:
+        path: /
+  consumers: []
+  entities:
+    source:
+      type: kapeta-dsl
+      value: ""
