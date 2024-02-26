@@ -8,3 +8,7 @@ spec:
   icon:
     type: url
     value: https://storage.googleapis.com/kapeta-public-cdn/icons/docker.svg
+  local:
+    type: Dockerfile
+    file: ./Dockerfile
+
