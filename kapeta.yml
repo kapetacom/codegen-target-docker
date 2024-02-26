@@ -9,6 +9,6 @@ spec:
     type: url
     value: https://storage.googleapis.com/kapeta-public-cdn/icons/docker.svg
   local:
-    type: Dockerfile
+    type: dockerfile
     file: ./Dockerfile
 
