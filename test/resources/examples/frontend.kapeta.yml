@@ -1,0 +1,122 @@
+kind: kapeta/block-type-frontend:1.3.4
+metadata:
+  name: kapeta/frontend
+spec:
+  target:
+    kind: kapeta/language-target-react-ts:local
+  type: service
+  providers:
+    - kind: kapeta/resource-type-web-page:0.0.12
+      metadata:
+        name: MyPage
+      spec:
+        path: /
+  consumers:
+    - kind: kapeta/resource-type-redis:0.0.1
+      metadata:
+        name: session
+    - kind: kapeta/resource-type-web-fragment:0.0.12
+      metadata:
+        name: subpage
+      spec:
+        path: /subpage
+    - kind: kapeta/resource-type-rest-client:1.0.12
+      metadata:
+        name: users
+      spec:
+        source:
+          type: kapeta-dsl
+          value: |-
+            controller Users('/users') {
+              // Add user
+              @POST("/{userId}")
+              addUser(@Path userId:string):void
+              
+              // Delete user
+              @DELETE("/{id}")
+              removeUser(@Path id:string):void
+            }
+            
+            controller Groups('/groups') {
+              // Get all
+              @GET("/")
+              getAll(@Query pageable:Pageable):string[]
+            
+              // Add user group
+              @POST("/{id}")
+              addGroup(@Path id:string):void
+
+              // Delete user group
+              @DELETE("/{id}")
+              removeGroup(@Path id:string):void
+            }
+    - kind: kapeta/resource-type-rest-client:1.0.12
+      metadata:
+        name: tasks
+      spec:
+        source:
+          type: kapeta-dsl
+          value: |-
+            // Add task for user
+            @POST("/tasks/{userId}/{id}")
+            addTask(@Path userId:string, @Path id:string,@Query filter?:string,@Body task:Task):Task
+            
+            // Mark task as done
+            @POST("/tasks/{id}/done")
+            markAsDone(@Path id:string,@Header headers?:any, @Body metadata:Map<string,string>, @Query tags?:Set<Tags>):void
+            
+            // Delete task
+            @DELETE("/tasks/{id}")
+            removeTask(@Path id:string):void
+            
+            controller Lists('/lists') {
+              // Add list
+              @POST("/{id}")
+              addList(@Path id:string):void
+              
+              // Delete list
+              @DELETE("/{id}")
+              removeList(@Path id:string):void
+            }
+  entities:
+    source:
+      type: kapeta-dsl
+      value: |-
+        enum Tags {
+            TAG1,TAG2
+        }
+        
+        enum TaskState {
+            PENDING,DONE
+        }
+        
+        type Task {
+            id:string
+
+            state:TaskState
+
+            created?:Date
+
+            views?:integer
+
+            stars?:float
+
+            numberList:double[]
+
+            // Age of the task
+            age:integer
+
+            metadata:Map<string,string>
+
+            tags:Set<Tags>
+        }
+        
+        enum TestState {
+            OK,TWO
+        }
+
+        MyType {
+            id:string
+
+            state:TestState
+        }

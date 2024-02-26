@@ -1,0 +1,14 @@
+kind: core/language-target
+metadata:
+  name: kapeta/language-target-docker
+  title: Docker
+  description: Use your existing code that is packaged as a dockerfile
+  visibility: public
+spec:
+  icon:
+    type: url
+    value: https://storage.googleapis.com/kapeta-public-cdn/icons/docker.svg
+  local:
+    type: dockerfile
+    file: ./Dockerfile
+
