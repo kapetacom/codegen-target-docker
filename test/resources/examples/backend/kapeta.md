@@ -23,7 +23,7 @@ through env vars - but your code is responsible for reading and using them.
 
 #### Environment Variables
 To map the kapeta-specific environment variables to the ones your code expects
-you define a `kapeta.env` file in the root of the block.
+you define a `kapeta.config.env` file in the root of the block.
 In here you set the environment variables that your block expects to use and
 map them to the kapeta-specific ones.
 
@@ -43,8 +43,14 @@ STRIPE_KEY=${KAPETA_INSTANCE_CONFIG_STRIPE_KEY}
 #### Configuration files
 If your block needs to read configuration from files, 
 you can define a `kapeta.config.yml` file in the root of the block.
-this file should contain the paths to the configuration files that your block needs
-and
+this file should contain the paths to the configuration files that your block needs and
+the values that should be injected into them.
+
+You can inject all environment variables into the configuration files using the `${}` syntax.
+
+To see an overview of all kapeta-specific environment variables
+that are available to your block, see here:
+https://docs.kapeta.com/v1/docs/environment-variables
 
 An example of a `kapeta.config.yml` file:
 ```yaml
